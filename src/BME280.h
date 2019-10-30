@@ -207,16 +207,19 @@ class BME280
     float readFloatPressure( void );
 	float readFloatAltitudeMeters( void );
 	float readFloatAltitudeFeet( void );
+	float calcPressureInicial(float altitude, float pressure);
 	
 	float readFloatHumidity( void );
 
 	//Temperature related methods
     float readTempC( void );
     float readTempF( void );
+	
+	float heatIndex(float temperature, float percentHumidity);
 
 	//Dewpoint related methods
 	//From Pavel-Sayekat: https://github.com/sparkfun/SparkFun_BME280_Breakout_Board/pull/6/files
-    double dewPointC(void);
+    double dewPointC(float celsius, float humidity);
     double dewPointF(void);
 	
     //The following utilities read and write
